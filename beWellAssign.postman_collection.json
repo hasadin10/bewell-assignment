@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "c4b65510-05cb-4c58-aefb-11b12e5f8529",
+		"name": "beWellAssign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18641773"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/bewell-api/orders",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"x2-3&FG0A-MATTE-IPHONE16PROMAX*3\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 50,\r\n        \"totalPrice\": 100\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/bewell-api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bewell-api",
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Case 1 : Only one product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"FG0A-CLEAR-IPHONE16PROMAX\",\r\n        \"qty\": 2,\r\n        \"unitPrice\": 50,\r\n        \"totalPrice\": 100\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Case 2: One product with wrong prefix",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"x2-3&FG0A-CLEAR-IPHONE16PROMAX\",\r\n        \"qty\": 2,\r\n        \"unitPrice\": 50,\r\n        \"totalPrice\": 100\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Case 3: One product with wrong prefix and has * symbol that indicates the quantity",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"x2-3&FG0A-MATTE-IPHONE16PROMAX*3\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 90,\r\n        \"totalPrice\": 90\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Case 4: One bundle product with wrong prefix and split by / symbol into two product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"FG0A-CLEAR-OPPOA3/%20xFG0A-CLEAR-OPPOA3-B\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 80,\r\n        \"totalPrice\": 80\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Case 5: One bundle product with wrong prefix and split by / symbol into three product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"FG0A-CLEAR-OPPOA3/%20xFG0A-CLEAR-OPPOA3-B/FG0A-MATTE-OPPOA3\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 120,\r\n        \"totalPrice\": 120\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Case 6: One bundle product with wrong prefix and have / symbol and * symbol",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"--FG0A-CLEAR-OPPOA3*2/FG0A-MATTE-OPPOA3\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 120,\r\n        \"totalPrice\": 120\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Case 7: one product and one bundle product with wrong prefix and have / symbol and * symbol",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"no\": 1,\r\n        \"platformProductId\": \"--FG0A-CLEAR-OPPOA3*2/FG0A-MATTE-OPPOA3*2\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 160,\r\n        \"totalPrice\": 160\r\n    },\r\n    {\r\n        \"no\": 2,\r\n        \"platformProductId\": \"FG0A-PRIVACY-IPHONE16PROMAX\",\r\n        \"qty\": 1,\r\n        \"unitPrice\": 50,\r\n        \"totalPrice\": 50\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/bewell-api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"bewell-api",
+								"orders"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

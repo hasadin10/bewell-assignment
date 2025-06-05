@@ -1,0 +1,37 @@
+# BEWELL-APP - ระบบประมวลผลคำสั่งซื้อ
+
+## โครงสร้างโปรเจค
+
+BEWELL-APP/
+├── api/
+│ └── order_handler.go # จัดการการรับ-ส่งคำสั่งซื้อ
+├── config/
+│ └── config.go # ตั้งค่าการทำงานของแอป
+├── entities/
+│ └── order.go # โมเดลข้อมูลคำสั่งซื้อ
+├── routes/
+│ └── routes.go # กำหนดเส้นทาง API
+├── services/
+│ └── order_service.go # โลจิกการประมวลผล
+├── utils/
+│ ├── format.go # ฟังก์ชันจัดรูปแบบข้อมูล
+│ └── response.go # การตอบกลับ API
+├── go.mod # ไฟล์ระบุ dependencies
+├── go.sum # ไฟล์ตรวจสอบความถูกต้อง
+└── main.go # จุดเริ่มต้นแอปพลิเคชัน
+
+
+## วิธีการใช้งาน
+
+1. **ติดตั้งและรันเซิร์ฟเวอร์**:
+```bash
+- go mod download
+- go run main.go
+
+2. ทดสอบ API ด้วย Postman:
+
+- นำเข้าไฟล์ beWellAssign.postman_collection.json เข้า Postman
+
+- เลือกกรณีทดสอบที่ต้องการจาก Collection
+
+- ยิง method post จากแต่ละ case ได้เลย
