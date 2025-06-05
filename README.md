@@ -24,12 +24,18 @@ BEWELL-APP/
 ## วิธีการใช้งาน
 
 1. **ติดตั้งและรันเซิร์ฟเวอร์**:
-```bash
-- go mod download
-- go run main.go
+- run คำสั่ง go run main.go
 
 2. **ทดสอบAPIด้วยPostman**:
 
 - นำเข้าไฟล์ beWellAssign.postman_collection.json เข้า Postman
 - เลือกกรณีทดสอบที่ต้องการจาก Collection
 - ยิง method post จากแต่ละ case ได้เลย
+
+2. **ทดสอบ ด้วย  UNITEST**:
+
+- cd ไปที่ path \bewell-app\services ที่มี file services\order_service_test.go
+- run คำสั่ง go test
+- ถ้า test ผ่าน จะขึ้น ok ถ้า test ไม่ผ่าน จะมีรายละเอียด error แสดงใน terminal
+
+NOTE => Case 7 : one product and one bundle product with wrong prefix and have / symbol and * ยังไม่ถูกต้อง
