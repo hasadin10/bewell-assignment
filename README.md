@@ -28,10 +28,8 @@ BEWELL-APP/
 - go mod download
 - go run main.go
 
-2. ทดสอบ API ด้วย Postman:
+2. **ทดสอบAPIด้วยPostman**:
 
 - นำเข้าไฟล์ beWellAssign.postman_collection.json เข้า Postman
-
 - เลือกกรณีทดสอบที่ต้องการจาก Collection
-
 - ยิง method post จากแต่ละ case ได้เลย
